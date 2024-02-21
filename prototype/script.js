@@ -6,34 +6,34 @@ function Pessoas(nome, sobrenome, idade) {
   this.nome = nome;
   this.sobrenome = sobrenome;
   this.idade = idade;
-  this.nomeCompleto = function (nome, sobrenome, idade) {
-    console.log(this.nome + ' ' + this.sobrenome + ' ' + this.idade)
-  }
 }
-CriarPessoas = new Pessoas('Miguel', 'Sanglard', 17)
-CriarPessoas.nomeCompleto()
+Pessoas.prototype.nomeCompleto = function () {
+  return this.nome + ' ' + this.sobrenome + ' ' + this.idade;
+}
+const miguel = new Pessoas('Miguel', 'Sanglard', 17)
 // Liste os métodos acessados por 
 // dados criados com NodeList,
 // HTMLCollection, Document
-const lista = document.querySelectorAll('li')
-const listaArray = Array.from(lista)
-const ListeMetodos = Object.getOwnPropertyNames(Array.prototype)
-console.log(ListeMetodos)
+Object.getOwnPropertyNames(NodeList.prototype)
+Object.getOwnPropertyNames(HTMLCollection.prototype)
+Object.getOwnPropertyNames(Document.prototype)
+
+// console.log(Object.getOwnPropertyNames(array.prototype))
+
+
+
 
 // Liste os construtores dos dados abaixo
 const li = document.querySelector('li');
-const liConstructors = Object(li.prototype)
-aa = Object.getOwnPropertyNames(li)
-console.log(aa)
-li;
-// HTMLLIElement()
-li.click;
-// String
-li.innerText;
-li.value;
-li.hidden;
-li.offsetLeft;
-li.click();
+Object.getOwnPropertyNames(li.innerHTML)
+li; //'HTMLLIElement'
+li.click; //Function
+li.innerText; //'String'
+li.value; //'Number'
+li.hidden; //Boolean'
+li.offsetLeft; //'Number'
+li.click(); //undefined
 
 // Qual o construtor do dado abaixo:
 li.hidden.constructor.name;
+//string
